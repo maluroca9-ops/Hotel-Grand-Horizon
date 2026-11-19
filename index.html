@@ -1,0 +1,1251 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#102a43">
+    <title>Grand Horizon | Luxury Resort & Spa</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <script>try{var t=localStorage.getItem("gh.theme")||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");document.documentElement.dataset.theme=t}catch(e){}</script>
+    <style>
+      :root {
+        --navy: #102a43;
+        --navy-deep: #0b2034;
+        --ink: #183247;
+        --muted: #5b6b77;
+        --sand: #f4f1eb;
+        --cream: #fbfaf7;
+        --gold: #b68b52;
+        --gold-text: #86602d;
+        --focus: #86602d;
+        --line: #dddcd7;
+        --white: #fff;
+        --surface: #ffffff;
+        --heading: #102a43;
+        --line-soft: #eeeeee;
+        --on-gold: #ffffff;
+        color-scheme: light;
+      }
+      :root[data-theme="dark"] {
+        color-scheme: dark;
+        --cream: #0e1b28;
+        --sand: #0a1520;
+        --ink: #d9e2e8;
+        --muted: #a3b3be;
+        --line: #27404f;
+        --line-soft: #1f3443;
+        --surface: #142637;
+        --heading: #f2ece1;
+        --gold-text: #d9b37c;
+        --on-gold: #0b2034;
+        --focus: #ddbd89;
+      }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body { margin: 0; color: var(--ink); background: var(--cream); font-family: "DM Sans", sans-serif; font-size: 15px; line-height: 1.5; }
+      a { color: inherit; text-decoration: none; }
+      button, input, select { font: inherit; }
+      .container { width: min(1160px, calc(100% - 64px)); margin: 0 auto; }
+      
+      /* Cabeçalho */
+      .site-header { position: absolute; z-index: 5; top: 0; left: 0; width: 100%; color: #fff; border-bottom: 1px solid rgba(255,255,255,.22); }
+      .nav-wrap { height: 86px; display: flex; align-items: center; justify-content: space-between; }
+      .brand { display: flex; align-items: center; gap: 12px; }
+      .brand-mark { width: 38px; height: 38px; border: 1px solid rgba(255,255,255,.75); display: grid; place-items: center; font-family: "Playfair Display", serif; font-size: 13px; letter-spacing: .04em; }
+      .brand strong, .brand small { display: block; line-height: 1.1; }
+      .brand strong { font-size: 13px; letter-spacing: .17em; font-weight: 600; }
+      .brand small { font-size: 8px; letter-spacing: .24em; margin-top: 5px; color: rgba(255,255,255,.85); }
+      .main-nav { display: flex; align-items: center; gap: 32px; font-size: 12px; letter-spacing: .04em; }
+      .main-nav > a:not(.nav-cta) { opacity: .82; }
+      .nav-cta { border: 1px solid rgba(255,255,255,.55); padding: 12px 17px; }
+      .nav-cta [aria-hidden="true"], .button [aria-hidden="true"] { margin-left: 12px; }
+      .menu-toggle { display: none; background: none; color: #fff; border: 0; font-size: 24px; cursor: pointer; min-width: 44px; min-height: 44px; }
+      
+      /* Banner Hero */
+      .hero { height: 690px; position: relative; color: #fff; background-image: url("https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=2000&q=90"); background-size: cover; background-position: center; }
+      .hero-overlay { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(7,28,46,.83) 0%, rgba(9,32,49,.45) 52%, rgba(9,32,49,.12) 100%); }
+      .hero-content { position: relative; z-index: 1; padding-top: 225px; }
+      .eyebrow { font-size: 10px; letter-spacing: .22em; text-transform: uppercase; color: var(--gold-text); font-weight: 700; margin: 0 0 22px; }
+      .eyebrow.light { color: #ddbd89; }
+      .hero h1 { font: 600 clamp(42px, 6vw, 75px)/1.03 "Playfair Display", serif; letter-spacing: -.035em; margin: 0 0 25px; }
+      .hero h1 em, h1 em, h2 em { font-weight: 500; }
+      .hero-copy { max-width: 430px; color: rgba(255,255,255,.8); font-size: 16px; line-height: 1.8; margin: 0 0 34px; }
+      .button { display: inline-flex; align-items: center; justify-content: space-between; padding: 15px 22px; border: 0; text-transform: uppercase; font-size: 10px; letter-spacing: .14em; font-weight: 700; cursor: pointer; transition: .25s; }
+      .button:hover { transform: translateY(-2px); }
+      .button:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+      .button-light { background: #fff; color: var(--navy); }
+      .button-gold { background: var(--gold-text); color: var(--on-gold); }
+      .button-outline { border: 1px solid var(--gold-text); color: var(--ink); background: transparent; }
+      .hero-scroll { position: absolute; z-index: 1; right: 32px; bottom: 38px; transform: rotate(-90deg); transform-origin: right center; text-transform: uppercase; font-size: 9px; letter-spacing: .2em; color: rgba(255,255,255,.7); }
+      .hero-scroll span { display: inline-block; width: 48px; height: 1px; background: var(--gold); margin-right: 14px; vertical-align: middle; }
+      
+      /* Barra de Reservas */
+      .booking-bar { background: var(--navy); color: #fff; padding: 27px 0 22px; }
+      .booking-inner { display: flex; align-items: center; gap: 40px; }
+      .booking-intro { display: flex; align-items: center; gap: 12px; min-width: 145px; font-family: "Playfair Display", serif; line-height: 1.2; font-size: 18px; }
+      .gold-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--gold); display: block; }
+      .booking-form { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr 1.2fr auto; gap: 15px; align-items: end; flex: 1; }
+      .booking-form label { display: flex; flex-direction: column; text-transform: uppercase; font-size: 9px; letter-spacing: .14em; color: #aeb9c0; gap: 7px; }
+      .booking-form input, .booking-form select { background: transparent; color: #fff; border: 0; border-bottom: 1px solid rgba(255,255,255,.35); padding: 4px 0 10px; outline: 0; min-width: 0; }
+      .booking-form select option { color: var(--ink); background: var(--surface); }
+      .booking-form input::-webkit-calendar-picker-indicator { filter: invert(1); opacity: .7; }
+      .booking-form .button { min-height: 42px; white-space: nowrap; }
+      .booking-hint { width: min(1160px, calc(100% - 64px)); margin: 12px auto 0; color: #ddbd89; font-size: 11px; text-align: right; min-height: 16px; }
+      
+      /* Seções Principais */
+      .section-pad { padding-top: 112px; padding-bottom: 112px; }
+      .section-label { font-size: 10px; text-transform: uppercase; letter-spacing: .17em; color: var(--muted); display: flex; align-items: center; gap: 13px; }
+      .section-label span { color: var(--gold-text); }
+      .section-label i { width: 27px; height: 1px; background: var(--gold); display: inline-block; }
+      .intro-grid { display: grid; grid-template-columns: 1.25fr .8fr; gap: 100px; margin-top: 50px; }
+      .intro-grid h2, .section-heading h2, .experience-copy h2 { font: 500 clamp(36px, 4.2vw, 55px)/1.08 "Playfair Display", serif; letter-spacing: -.03em; color: var(--heading); margin: 0; }
+      .intro-text { padding-top: 14px; color: var(--muted); font-size: 15px; line-height: 1.9; }
+      .text-link { display: inline-flex; gap: 13px; margin-top: 24px; color: var(--heading); font-weight: 700; text-transform: uppercase; font-size: 10px; letter-spacing: .15em; border-bottom: 1px solid var(--gold); padding-bottom: 9px; }
+      
+      /* Quartos */
+      .rooms-section { background: var(--sand); }
+      .section-heading { display: flex; align-items: end; justify-content: space-between; margin-bottom: 42px; }
+      .section-heading .eyebrow { margin-bottom: 16px; }
+      .section-index { font-size: 10px; letter-spacing: .17em; color: var(--muted); padding-bottom: 7px; }
+      .rooms-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+      .room-card { background: var(--surface); }
+      .room-image { height: 325px; position: relative; overflow: hidden; }
+      .room-image img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s; }
+      .room-card:hover img { transform: scale(1.05); }
+      .room-category { position: absolute; top: 20px; left: 20px; background: rgba(255,255,255,.9); padding: 7px 10px; text-transform: uppercase; font-size: 9px; letter-spacing: .14em; color: var(--navy); }
+      .image-arrow { position: absolute; right: 19px; top: 19px; width: 32px; height: 32px; background: var(--gold); color: #fff; display: grid; place-items: center; }
+      .room-info { padding: 21px 22px 19px; }
+      .room-info h3 { font: 500 24px "Playfair Display", serif; margin: 0 0 9px; color: var(--heading); }
+      .room-info p { font-size: 12px; line-height: 1.65; color: var(--muted); min-height: 60px; margin: 0; }
+      .room-meta { display: flex; justify-content: space-between; align-items: end; border-top: 1px solid var(--line); margin-top: 19px; padding-top: 15px; font-size: 10px; color: var(--muted); }
+      .room-meta strong { font-size: 16px; color: var(--heading); }
+      .room-meta small { font-size: 9px; font-weight: 400; color: var(--muted); }
+      
+      /* Experiência / Spa */
+      .experience-section { background: var(--cream); }
+      .experience-grid { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 90px; }
+      .experience-image { height: 520px; }
+      .experience-image img { width: 100%; height: 100%; object-fit: cover; }
+      .experience-copy h2 { margin: 0 0 22px; }
+      .experience-copy p { max-width: 390px; color: var(--muted); line-height: 1.9; margin: 0 0 30px; }
+      
+      /* Citação */
+      .quote-section { background: var(--navy); color: #fff; padding: 96px 0; text-align: center; }
+      .quote-mark { color: var(--gold); font: 70px/0 "Playfair Display", serif; }
+      .quote-section blockquote { max-width: 700px; margin: 22px auto 20px; font: 500 clamp(28px, 4vw, 45px)/1.2 "Playfair Display", serif; }
+      .quote-section p { color: #9daab4; font-size: 10px; letter-spacing: .2em; text-transform: uppercase; }
+      
+      /* Rodapé */
+      .site-footer { background: var(--navy-deep); color: #fff; padding: 65px 0 25px; }
+      .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; padding-bottom: 58px; }
+      .footer-title { font-weight: 400; color: var(--gold); font-size: 10px; text-transform: uppercase; letter-spacing: .16em; margin: 0 0 15px; }
+      .footer-top > div > a { display: block; color: #bac4ca; font-size: 13px; margin: 5px 0; }
+      .footer-brand { align-self: start; }
+      .socials { display: flex; gap: 9px; }
+      .socials a { width: 30px; height: 30px; border: 1px solid rgba(255,255,255,.25); display: grid !important; place-items: center; font-size: 9px !important; color: #fff !important; }
+      .footer-bottom { border-top: 1px solid rgba(255,255,255,.15); padding-top: 21px; display: flex; justify-content: space-between; color: #83929e; font-size: 10px; }
+      .footer-bottom a { color: #d8b57e; }
+      
+      /* Mensagens / Notificações (Flash) */
+      .flash-stack { position: fixed; z-index: 10; top: 95px; right: 24px; width: min(420px, calc(100% - 48px)); }
+      .flash { box-shadow: 0 9px 30px rgba(0,0,0,.12); padding: 16px 42px 16px 18px; position: relative; margin-bottom: 10px; font-size: 13px; animation: slideIn 0.3s ease-out; }
+      @keyframes slideIn { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+      .flash.success { background: #e6f3ec; color: #1c6844; border-left: 3px solid #3d9b6b; }
+      .flash.error { background: #f9e9e7; color: #98463c; border-left: 3px solid #c5685d; }
+      .flash button { position: absolute; right: 9px; top: 8px; width: 28px; height: 28px; line-height: 1; border: 0; background: transparent; font-size: 21px; cursor: pointer; color: inherit; }
+      
+      /* Painel de Administração Integrado */
+      .admin-section { padding: 90px 0; background: var(--sand); border-top: 1px solid var(--line); }
+      .admin-title { display: flex; align-items: end; justify-content: space-between; margin-bottom: 38px; }
+      .admin-title h2 { font: 500 42px "Playfair Display", serif; color: var(--heading); margin: 0; }
+      .admin-date { font-size: 10px; letter-spacing: .15em; color: var(--muted); text-transform: uppercase; }
+      .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-bottom: 45px; }
+      .stat-card { background: var(--surface); border: 1px solid var(--line); padding: 24px 25px; }
+      .stat-card.stat-accent { background: var(--navy); color: #fff; border-color: var(--navy); }
+      .stat-label, .stat-foot { display: block; font-size: 10px; text-transform: uppercase; letter-spacing: .12em; color: var(--muted); }
+      .stat-accent .stat-label, .stat-accent .stat-foot { color: #aeb9c0; }
+      .stat-card strong { display: block; font: 500 32px "Playfair Display", serif; color: var(--heading); margin: 18px 0 12px; }
+      .stat-accent strong { color: #fff; }
+      .stat-foot { font-size: 10px; text-transform: none; letter-spacing: 0; }
+      .status { font-family: "DM Sans", sans-serif !important; font-size: 22px !important; }
+      .status i { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #54a878; vertical-align: middle; margin-right: 7px; }
+      .reservations-panel { background: var(--surface); border: 1px solid var(--line); }
+      .panel-heading { display: flex; align-items: end; justify-content: space-between; padding: 27px 28px; border-bottom: 1px solid var(--line); }
+      .panel-heading h3 { margin: 0; font: 500 30px "Playfair Display", serif; color: var(--heading); }
+      .panel-heading .eyebrow { margin-bottom: 9px; }
+      .panel-heading > span { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: .12em; }
+      .table-wrap { overflow-x: auto; }
+      table { width: 100%; border-collapse: collapse; text-align: left; font-size: 12px; }
+      th { font-size: 9px; color: var(--muted); text-transform: uppercase; letter-spacing: .13em; font-weight: 600; }
+      th, td { padding: 17px 20px; border-bottom: 1px solid var(--line-soft); white-space: nowrap; }
+      td { color: var(--ink); }
+      td strong, td small { display: block; }
+      td small { color: var(--muted); font-size: 10px; margin-top: 3px; }
+      .empty-state { text-align: center; padding: 60px 20px; }
+      .empty-state > span { font-size: 27px; color: var(--gold); }
+      .empty-state h4 { font: 500 24px "Playfair Display", serif; color: var(--heading); margin: 14px 0 4px; }
+      .empty-state p { color: var(--muted); margin: 0; }
+
+      /* Responsividade */
+      @media (max-width: 900px) {
+        .main-nav { display: none; }
+        .main-nav.is-open { display: flex; position: absolute; top: 72px; left: 20px; right: 20px; padding: 20px; background: var(--navy); flex-direction: column; align-items: stretch; }
+        .menu-toggle { display: block; }
+        .booking-inner { flex-direction: column; align-items: stretch; }
+        .booking-form { grid-template-columns: 1fr; }
+        .intro-grid { grid-template-columns: 1fr; gap: 30px; }
+        .rooms-grid { grid-template-columns: 1fr; }
+        .experience-grid { grid-template-columns: 1fr; gap: 40px; }
+        .stats-grid { grid-template-columns: 1fr; }
+        .footer-top { grid-template-columns: 1fr; }
+      }
+
+      /* ===== Acessibilidade (WCAG 2.2 AA) ===== */
+      .sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+      .skip-link { position: absolute; z-index: 100; left: 16px; top: -60px; background: #fff; color: var(--navy); padding: 12px 18px; font-weight: 700; }
+      .skip-link:focus { top: 12px; }
+      :focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+      .site-header, .booking-bar, .quote-section, .site-footer, .stat-accent { --focus: #ddbd89; }
+      .booking-form input::placeholder { color: #aeb9c0; opacity: 1; }
+      .booking-form input[aria-invalid="true"], .booking-form select[aria-invalid="true"] { border-bottom-color: #ffb4a8; }
+      .field-error { color: #ffb4a8; font-size: 11px; letter-spacing: 0; text-transform: none; min-height: 0; }
+      .booking-hint, .booking-intro h2 { margin-bottom: 0; }
+      .booking-intro h2 { margin: 0; font: inherit; }
+      .header-tools { display: flex; align-items: center; gap: 12px; }
+      .lang-switch { display: flex; border: 1px solid rgba(255,255,255,.4); }
+      .lang-switch button { background: none; border: 0; color: #fff; padding: 6px 10px; min-width: 36px; min-height: 32px; font-size: 11px; letter-spacing: .08em; cursor: pointer; }
+      .lang-switch button[aria-pressed="true"] { background: #fff; color: var(--navy); font-weight: 700; }
+
+      /* ===== LGPD ===== */
+      .form-consents { grid-column: 1 / -1; display: grid; gap: 8px; }
+      .booking-form .consent { flex-direction: row; align-items: flex-start; gap: 10px; text-transform: none; letter-spacing: 0; font-size: 12px; color: #d5dde2; }
+      .booking-form .consent input { flex: none; width: 20px; height: 20px; padding: 0; border: 0; accent-color: var(--gold); }
+      .consent a { color: #ddbd89; text-decoration: underline; }
+      .link-button { background: none; border: 0; padding: 0; color: #d8b57e; text-decoration: underline; cursor: pointer; font-size: inherit; }
+      .panel-tools > span { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: .12em; }
+      .panel-tools { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; justify-content: flex-end; }
+      .tool-btn { border: 1px solid var(--muted); background: var(--surface); color: var(--heading); font-size: 11px; padding: 6px 12px; min-height: 32px; cursor: pointer; }
+      .tool-btn[aria-pressed="true"] { background: var(--navy); color: #fff; }
+      .table-wrap:focus-visible { outline-offset: -3px; }
+      dialog.privacy { width: min(640px, calc(100% - 32px)); max-height: 85vh; border: 0; padding: 0; color: var(--ink); background: var(--surface); }
+      dialog.privacy::backdrop { background: rgba(11,32,52,.72); }
+      .privacy-body { padding: 32px; max-height: 85vh; overflow: auto; }
+      .privacy-body h2 { font: 500 30px "Playfair Display", serif; color: var(--heading); margin: 0 0 8px; }
+      .privacy-body dt { font-weight: 700; color: var(--heading); margin-top: 16px; }
+      .privacy-body dd { margin: 4px 0 0; color: var(--muted); line-height: 1.7; }
+      .privacy-body .button { margin-top: 24px; }
+
+      /* ===== Tema claro/escuro ===== */
+      .theme-toggle { background: none; border: 1px solid rgba(255,255,255,.4); color: #fff; min-width: 36px; min-height: 34px; font-size: 15px; cursor: pointer; }
+      .theme-toggle[aria-pressed="true"] { background: #fff; color: var(--navy); }
+      :root[data-theme="dark"] .room-image img, :root[data-theme="dark"] .experience-image img { filter: brightness(.88); }
+
+      /* ===== Modo mobile ===== */
+      @media (max-width: 900px) {
+        .hero { height: auto; min-height: 600px; padding-bottom: 90px; }
+        .hero-content { padding-top: 170px; }
+        .hero-scroll { display: none; }
+        .main-nav.is-open { max-height: calc(100vh - 100px); overflow: auto; border: 1px solid rgba(255,255,255,.2); gap: 4px; }
+        .main-nav.is-open a { padding: 12px 4px; }
+        .main-nav.is-open .nav-cta { padding: 14px 17px; text-align: center; margin-top: 8px; }
+        .section-pad { padding-top: 80px; padding-bottom: 80px; }
+        .admin-title, .section-heading { flex-wrap: wrap; gap: 12px; }
+      }
+      @media (max-width: 700px) {
+        .table-wrap { overflow-x: visible; }
+        table, tbody, tr, td { display: block; }
+        thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+        tr { padding: 10px 0; border-bottom: 1px solid var(--line); }
+        td { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; border: 0; padding: 7px 20px; white-space: normal; text-align: right; }
+        td::before { content: attr(data-label); flex: none; text-align: left; color: var(--muted); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; }
+      }
+      @media (max-width: 600px) {
+        .container, .booking-hint { width: calc(100% - 32px); }
+        .booking-hint { text-align: left; }
+        .nav-wrap { height: 72px; }
+        .header-tools { gap: 8px; }
+        .lang-switch button { min-width: 32px; padding: 4px 6px; }
+        .theme-toggle, .menu-toggle { min-width: 40px; }
+        .hero { min-height: 540px; }
+        .hero-content { padding-top: 140px; }
+        .hero h1 { font-size: clamp(36px, 11vw, 46px); margin-bottom: 20px; }
+        .hero-copy { font-size: 15px; margin-bottom: 26px; }
+        .hero .button { width: 100%; }
+        .booking-bar { padding: 24px 0 18px; }
+        .booking-inner { gap: 20px; }
+        .booking-intro { min-width: 0; }
+        .booking-form input, .booking-form select { font-size: 16px; padding: 8px 0 10px; }
+        .booking-form .button { width: 100%; min-height: 48px; }
+        .section-pad { padding-top: 60px; padding-bottom: 60px; }
+        .intro-grid { margin-top: 32px; }
+        .room-image { height: 240px; }
+        .experience-image { height: 300px; }
+        .quote-section { padding: 64px 0; }
+        .admin-section { padding: 56px 0; }
+        .admin-title h2 { font-size: 32px; }
+        .panel-heading { flex-direction: column; align-items: flex-start; gap: 14px; padding: 22px 20px; }
+        .panel-tools { justify-content: flex-start; }
+        .tool-btn { min-height: 40px; }
+        .stat-card { padding: 20px; }
+        .empty-state { padding: 44px 20px; }
+        .site-footer { padding: 48px 0 calc(24px + env(safe-area-inset-bottom)); }
+        .footer-top { gap: 28px; padding-bottom: 36px; }
+        .footer-bottom { flex-direction: column; gap: 12px; }
+        .socials a { width: 44px; height: 44px; }
+        .flash-stack { top: 80px; right: 16px; width: calc(100% - 32px); }
+        .privacy-body { padding: 22px 20px; max-height: 90vh; }
+        dialog.privacy { max-height: 90vh; }
+      }
+      @media (max-width: 480px) {
+        .brand > span:last-child { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html { scroll-behavior: auto; }
+        *, *::before, *::after { animation: none !important; transition: none !important; }
+      }
+    </style>
+  </head>
+  <body>
+    <a class="skip-link" href="#main" data-i18n="a11y.skip"></a>
+
+    <!-- Cabeçalho -->
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a class="brand" href="#">
+          <span class="brand-mark" aria-hidden="true">GH</span>
+          <span><strong>GRAND HORIZON</strong><small>LUXURY RESORT &amp; SPA</small></span>
+        </a>
+        <nav class="main-nav" id="mainNav" data-i18n-attr="aria-label:nav.label">
+          <a href="#experience" data-i18n="nav.experience"></a>
+          <a href="#rooms" data-i18n="nav.rooms"></a>
+          <a href="#spa" data-i18n="nav.spa"></a>
+          <a href="#admin" data-i18n="nav.admin"></a>
+          <a class="nav-cta" href="#booking"><span class="no-margin" data-i18n="nav.cta"></span> <span aria-hidden="true">↗</span></a>
+        </nav>
+        <div class="header-tools">
+          <div class="lang-switch" role="group" data-i18n-attr="aria-label:lang.label">
+            <button type="button" data-lang="pt-BR" lang="pt-BR" aria-label="Português (Brasil)">PT</button>
+            <button type="button" data-lang="en" lang="en" aria-label="English">EN</button>
+            <button type="button" data-lang="es" lang="es" aria-label="Español">ES</button>
+          </div>
+          <button type="button" class="theme-toggle" id="themeToggle" aria-pressed="false"><span aria-hidden="true">◐</span></button>
+          <button class="menu-toggle" id="menuToggle" type="button" aria-controls="mainNav" aria-expanded="false"><span aria-hidden="true">☰</span></button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Notificações Flutuantes -->
+    <div id="flash-stack" class="flash-stack" aria-live="polite"></div>
+
+    <main id="main" tabindex="-1">
+      <!-- Hero Banner -->
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+          <p class="eyebrow light" data-i18n="hero.eyebrow"></p>
+          <h1 id="hero-title"><span data-i18n="hero.h1a"></span><br><em data-i18n="hero.h1b"></em></h1>
+          <p class="hero-copy" data-i18n="hero.copy"></p>
+          <a class="button button-light" href="#booking"><span data-i18n="hero.cta"></span> <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="hero-scroll" aria-hidden="true"><span></span> <b style="font-weight:400" data-i18n="hero.scroll"></b></div>
+      </section>
+
+      <!-- Formulário de Reservas -->
+      <section class="booking-bar" id="booking" aria-labelledby="booking-title">
+        <div class="container booking-inner">
+          <div class="booking-intro">
+            <span class="gold-dot" aria-hidden="true"></span>
+            <h2 id="booking-title"><strong><span data-i18n="booking.title1"></span><br><span data-i18n="booking.title2"></span></strong></h2>
+          </div>
+          <form class="booking-form" id="bookingForm" novalidate>
+            <label for="guest_name"><span data-i18n="booking.name"></span>
+              <input type="text" id="guest_name" name="name" autocomplete="name" maxlength="120" required aria-required="true" aria-describedby="err_guest_name" data-i18n-attr="placeholder:booking.namePh">
+              <span class="field-error" id="err_guest_name"></span>
+            </label>
+            <label for="email"><span data-i18n="booking.email"></span>
+              <input type="email" id="email" name="email" autocomplete="email" maxlength="254" required aria-required="true" aria-describedby="err_email" data-i18n-attr="placeholder:booking.emailPh">
+              <span class="field-error" id="err_email"></span>
+            </label>
+            <label for="room_id"><span data-i18n="booking.room"></span>
+              <select id="room_id" required aria-required="true" aria-describedby="err_room_id"></select>
+              <span class="field-error" id="err_room_id"></span>
+            </label>
+            <label for="check_in"><span data-i18n="booking.in"></span>
+              <input type="date" id="check_in" required aria-required="true" aria-describedby="err_check_in bookingHint">
+              <span class="field-error" id="err_check_in"></span>
+            </label>
+            <label for="check_out"><span data-i18n="booking.out"></span>
+              <input type="date" id="check_out" required aria-required="true" aria-describedby="err_check_out bookingHint">
+              <span class="field-error" id="err_check_out"></span>
+            </label>
+            <button class="button button-gold" type="submit" id="submitBtn"><span id="submitLabel"></span> <span aria-hidden="true">→</span></button>
+
+            <div class="form-consents">
+              <label class="consent" for="privacy_ack">
+                <input type="checkbox" id="privacy_ack" required aria-required="true" aria-describedby="err_privacy_ack">
+                <span data-i18n-html="consent.privacy"></span>
+              </label>
+              <span class="field-error" id="err_privacy_ack"></span>
+              <label class="consent" for="marketing_optin">
+                <input type="checkbox" id="marketing_optin">
+                <span data-i18n="consent.marketing"></span>
+              </label>
+            </div>
+          </form>
+        </div>
+        <div class="booking-hint" id="bookingHint" role="status" aria-live="polite"></div>
+      </section>
+
+      <!-- A Experiência -->
+      <section class="intro-section container section-pad" id="experience" aria-labelledby="experience-title">
+        <div class="section-label"><span>01</span><i aria-hidden="true"></i> <b style="font-weight:400" data-i18n="intro.label"></b></div>
+        <div class="intro-grid">
+          <div>
+            <p class="eyebrow" data-i18n="intro.eyebrow"></p>
+            <h2 id="experience-title"><span data-i18n="intro.h2a"></span><br><em data-i18n="intro.h2b"></em></h2>
+          </div>
+          <div class="intro-text">
+            <p data-i18n="intro.p"></p>
+            <a class="text-link" href="#rooms"><span data-i18n="intro.link"></span> <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Acomodações -->
+      <section class="rooms-section section-pad" id="rooms" aria-labelledby="rooms-title">
+        <div class="container">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow" data-i18n="rooms.eyebrow"></p>
+              <h2 id="rooms-title" data-i18n="rooms.h2"></h2>
+            </div>
+            <span class="section-index" aria-hidden="true">02 / 04</span>
+          </div>
+          <div class="rooms-grid" id="roomsContainer"></div>
+        </div>
+      </section>
+
+      <!-- Spa & Bem-estar -->
+      <section class="experience-section section-pad" id="spa" aria-labelledby="spa-title">
+        <div class="container experience-grid">
+          <div class="experience-image">
+            <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1200&q=85" alt="" data-i18n-attr="alt:spa.alt" loading="lazy">
+          </div>
+          <div class="experience-copy">
+            <div class="section-label"><span>03</span><i aria-hidden="true"></i> <b style="font-weight:400" data-i18n="spa.label"></b></div>
+            <h2 id="spa-title"><span data-i18n="spa.h2a"></span><br><em data-i18n="spa.h2b"></em></h2>
+            <p data-i18n="spa.p"></p>
+            <a class="button button-outline" href="#booking"><span data-i18n="spa.cta"></span> <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Citação -->
+      <section class="quote-section">
+        <div class="container">
+          <span class="quote-mark" aria-hidden="true">“</span>
+          <blockquote data-i18n="quote.text"></blockquote>
+          <p data-i18n="quote.author"></p>
+        </div>
+      </section>
+
+      <!-- Painel de Administração Integrado -->
+      <section class="admin-section" id="admin" aria-labelledby="admin-title">
+        <div class="container">
+          <div class="admin-title">
+            <div>
+              <p class="eyebrow" data-i18n="admin.eyebrow"></p>
+              <h2 id="admin-title" data-i18n="admin.h2"></h2>
+            </div>
+            <span class="admin-date" id="adminYearDisplay"></span>
+          </div>
+
+          <div class="stats-grid">
+            <div class="stat-card">
+              <span class="stat-label" data-i18n="admin.statCount"></span>
+              <strong id="statCount">0</strong>
+              <span class="stat-foot" data-i18n="admin.statCountFoot"></span>
+            </div>
+            <div class="stat-card stat-accent">
+              <span class="stat-label" data-i18n="admin.statRev"></span>
+              <strong id="statRevenue">R$ 0,00</strong>
+              <span class="stat-foot" data-i18n="admin.statRevFoot"></span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-label" data-i18n="admin.statStatus"></span>
+              <strong class="status"><i aria-hidden="true"></i> <span data-i18n="admin.operational"></span></strong>
+              <span class="stat-foot" data-i18n="admin.statusFoot"></span>
+            </div>
+          </div>
+
+          <div class="reservations-panel">
+            <div class="panel-heading">
+              <div>
+                <p class="eyebrow" data-i18n="admin.panelEyebrow"></p>
+                <h3 data-i18n="admin.panelTitle"></h3>
+              </div>
+              <div class="panel-tools">
+                <span id="reservationCountLabel" role="status"></span>
+                <button type="button" class="tool-btn" id="revealBtn" aria-pressed="false" data-i18n="admin.reveal"></button>
+                <button type="button" class="tool-btn" id="exportBtn" data-i18n="admin.export"></button>
+              </div>
+            </div>
+            <div class="table-wrap" role="region" tabindex="0" data-i18n-attr="aria-label:admin.scroll">
+              <table role="table">
+                <caption class="sr-only" data-i18n="admin.caption"></caption>
+                <thead role="rowgroup">
+                  <tr role="row">
+                    <th role="columnheader" scope="col" data-i18n="admin.colGuest"></th>
+                    <th role="columnheader" scope="col" data-i18n="admin.colRoom"></th>
+                    <th role="columnheader" scope="col" data-i18n="admin.colStay"></th>
+                    <th role="columnheader" scope="col" data-i18n="admin.colTotal"></th>
+                    <th role="columnheader" scope="col" data-i18n="admin.colAt"></th>
+                    <th role="columnheader" scope="col" data-i18n="admin.colActions"></th>
+                  </tr>
+                </thead>
+                <tbody id="reservationsTableBody" role="rowgroup"></tbody>
+              </table>
+            </div>
+            <div id="emptyState" class="empty-state">
+              <span aria-hidden="true">✦</span>
+              <h4 data-i18n="admin.emptyTitle"></h4>
+              <p data-i18n="admin.emptyText"></p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="site-footer">
+      <div class="container footer-top">
+        <a class="brand footer-brand" href="#">
+          <span class="brand-mark" aria-hidden="true">GH</span>
+          <span><strong>GRAND HORIZON</strong><small>LUXURY RESORT &amp; SPA</small></span>
+        </a>
+        <div>
+          <h2 class="footer-title" data-i18n="footer.contact"></h2>
+          <a href="mailto:reservas@grandhorizon.com">reservas@grandhorizon.com</a>
+          <a href="tel:+556134595128">(61)3459-5128</a>
+        </div>
+        <div>
+          <h2 class="footer-title" data-i18n="footer.follow"></h2>
+          <div class="socials">
+            <a href="#" data-i18n-attr="aria-label:social.ig"><span aria-hidden="true">IG</span></a>
+            <a href="#" data-i18n-attr="aria-label:social.fb"><span aria-hidden="true">FB</span></a>
+            <a href="#" data-i18n-attr="aria-label:social.in"><span aria-hidden="true">IN</span></a>
+          </div>
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        <span id="copyrightYear"></span>
+        <a href="#admin"><span data-i18n="footer.admin"></span> <span aria-hidden="true">↗</span></a>
+        <button type="button" class="link-button" data-open-privacy data-i18n="footer.privacy"></button>
+        <span id="tagline" data-i18n="footer.tagline"></span>
+      </div>
+    </footer>
+
+    <!-- Aviso de Privacidade (LGPD) -->
+    <dialog id="privacyDialog" class="privacy" aria-labelledby="privacyTitle">
+      <div class="privacy-body">
+        <h2 id="privacyTitle" data-i18n="privacy.title"></h2>
+        <p data-i18n="privacy.lead"></p>
+        <dl id="privacyList"></dl>
+        <button type="button" class="button button-gold" id="privacyClose"><span data-i18n="privacy.close"></span></button>
+      </div>
+    </dialog>
+
+    <script>
+      "use strict";
+
+      /* ===================================================
+         DADOS E TRADUÇÕES
+         =================================================== */
+
+      const ROOMS_DATA = [
+        { id: 1, name: "Ocean Pearl Suite", categoryKey: "cat.suite", descriptionKey: "room.1.desc", price: 2480.00, capacity: 2,
+          image: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1200&q=85" },
+        { id: 2, name: "Horizon Grand Villa", categoryKey: "cat.villa", descriptionKey: "room.2.desc", price: 3920.00, capacity: 4,
+          image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=85" },
+        { id: 3, name: "Garden Serenity Room", categoryKey: "cat.deluxe", descriptionKey: "room.3.desc", price: 1680.00, capacity: 2,
+          image: "https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=1200&q=85" }
+      ];
+
+      const TRANSLATIONS = {
+        "pt-BR": {
+          "meta.title": "Grand Horizon | Luxury Resort & Spa",
+          "a11y.skip": "Ir para o conteúdo principal",
+          "nav.label": "Navegação principal", "nav.experience": "A experiência", "nav.rooms": "Acomodações", "nav.spa": "Bem-estar", "nav.admin": "Painel Admin", "nav.cta": "Reserve agora",
+          "nav.open": "Abrir menu", "nav.close": "Fechar menu", "lang.label": "Idioma", "theme.toggle": "Modo escuro",
+          "hero.eyebrow": "Onde o horizonte encontra você", "hero.h1a": "Uma nova forma de", "hero.h1b": "viver o extraordinário.",
+          "hero.copy": "Entre o azul infinito do mar e a calma dos jardins tropicais, descubra dias feitos para serem lembrados.",
+          "hero.cta": "Planeje a sua estadia", "hero.scroll": "explore a experiência",
+          "booking.title1": "Reserve o seu", "booking.title2": "momento", "booking.name": "Nome completo", "booking.namePh": "O seu nome",
+          "booking.email": "E-mail", "booking.emailPh": "seu@email.com", "booking.room": "Acomodação", "booking.in": "Entrada", "booking.out": "Saída",
+          "booking.submit": "Confirmar Reserva", "booking.processing": "Processando...", "booking.perNight": "/noite",
+          "booking.hintBusy": "Aviso: Acomodação ocupada a partir de {date}. Selecione a saída até esta data.",
+          "consent.privacy": "Li e estou ciente do <a href=\"#privacy\" data-open-privacy>Aviso de Privacidade</a>. Meus dados serão usados apenas para processar esta reserva.",
+          "consent.marketing": "Quero receber ofertas e novidades por e-mail (opcional).",
+          "err.name": "Informe o seu nome completo.", "err.email": "Informe um e-mail válido.", "err.room": "Selecione uma acomodação.",
+          "err.in": "Informe a data de entrada.", "err.inPast": "A data de entrada não pode ser anterior a hoje.", "err.out": "Informe a data de saída.",
+          "err.dateOrder": "A data de saída deve ser posterior à data de entrada.",
+          "err.unavailable": "Indisponível: O quarto \"{room}\" já está reservado de {from} a {to}. Escolha outro período.",
+          "err.roomNotFound": "Acomodação não encontrada.", "err.privacy": "Confirme que leu o Aviso de Privacidade para continuar.",
+          "ok.booked": "Reserva confirmada com sucesso para {room}! Total: {total}.", "flash.close": "Fechar",
+          "intro.label": "A essência Grand Horizon", "intro.eyebrow": "Mais do que uma estadia", "intro.h2a": "O luxo de se sentir", "intro.h2b": "exatamente onde deveria estar.",
+          "intro.p": "No Grand Horizon, cada detalhe foi pensado para transformar o tempo em memória. Do primeiro café com vista para o mar ao último pôr do sol no nosso spa, tudo convida você a desacelerar.",
+          "intro.link": "Conheça o resort",
+          "rooms.eyebrow": "Acomodações selecionadas", "rooms.h2": "Seu horizonte particular", "rooms.alt": "Foto da acomodação {name}",
+          "rooms.upTo": "Até {n} hóspedes", "rooms.night": "/ noite", "cat.suite": "Suite", "cat.villa": "Villa", "cat.deluxe": "Quarto Deluxe",
+          "room.1.desc": "Uma suite luminosa com varanda privativa, vista panorâmica para o oceano e detalhes artesanais.",
+          "room.2.desc": "Refúgio exclusivo com piscina privativa, sala de estar ampla e serviço de concierge dedicado.",
+          "room.3.desc": "Um espaço tranquilo voltado para os jardins tropicais, pensado para desacelerar e respirar.",
+          "spa.alt": "Tratamento de spa", "spa.label": "Rituais de bem-estar", "spa.h2a": "O seu tempo,", "spa.h2b": "do seu jeito.",
+          "spa.p": "Rituais ancestrais, ingredientes locais e a sabedoria das nossas terapeutas. No Horizon Spa, o cuidado começa quando você decide parar.",
+          "spa.cta": "Descubra o spa",
+          "quote.text": "O verdadeiro luxo é ter tempo para sentir cada momento.", "quote.author": "— A filosofia Grand Horizon",
+          "admin.eyebrow": "Visão geral do hotel", "admin.h2": "Painel de reservas", "admin.date": "{year} · Operações",
+          "admin.statCount": "Total de reservas", "admin.statCountFoot": "reservas confirmadas", "admin.statRev": "Faturamento acumulado", "admin.statRevFoot": "valor total das reservas",
+          "admin.statStatus": "Status do resort", "admin.operational": "Operacional", "admin.statusFoot": "sistema atualizado agora",
+          "admin.panelEyebrow": "Atividade recente", "admin.panelTitle": "Reservas recebidas", "admin.rec.one": "{n} registro", "admin.rec.other": "{n} registros",
+          "admin.caption": "Reservas recebidas", "admin.scroll": "Tabela de reservas (role para ver mais colunas)",
+          "admin.colGuest": "Hóspede", "admin.colRoom": "Acomodação", "admin.colStay": "Estadia", "admin.colTotal": "Total", "admin.colAt": "Recebida em", "admin.colActions": "Ações",
+          "admin.emptyTitle": "Ainda não há reservas", "admin.emptyText": "As novas reservas aparecerão aqui assim que forem enviadas acima.",
+          "admin.reveal": "Exibir e-mails completos", "admin.export": "Exportar dados (JSON)", "admin.delete": "Excluir", "admin.deleteAria": "Excluir reserva de {name}",
+          "admin.deleteConfirm": "Excluir definitivamente os dados desta reserva?", "admin.deleted": "Reserva e dados pessoais excluídos.",
+          "admin.exported": "Dados exportados.", "admin.exportEmpty": "Não há dados para exportar.",
+          "footer.contact": "Fale conosco", "footer.follow": "Siga o horizonte", "footer.admin": "Área administrativa", "footer.privacy": "Privacidade",
+          "footer.tagline": "Made for slow living.", "footer.copy": "© {year} Grand Horizon Luxury Resort & Spa",
+          "social.ig": "Instagram", "social.fb": "Facebook", "social.in": "LinkedIn",
+          "privacy.title": "Aviso de Privacidade", "privacy.lead": "Em conformidade com a Lei Geral de Proteção de Dados (Lei nº 13.709/2018 – LGPD).", "privacy.close": "Fechar",
+          "privacy.items": [
+            ["Controlador e Encarregado (DPO)", "Grand Horizon Luxury Resort & Spa. Contato do Encarregado: privacidade@grandhorizon.com."],
+            ["Dados coletados", "Nome completo, e-mail, acomodação e datas da estadia. Não coletamos dados pessoais sensíveis."],
+            ["Finalidade e base legal", "Processar e confirmar a reserva (execução de contrato ou de procedimentos preliminares, art. 7º, V). Ofertas por e-mail só são enviadas com o seu consentimento específico (art. 7º, I), que pode ser retirado a qualquer momento."],
+            ["Armazenamento e compartilhamento", "Nesta versão, os dados da reserva ficam apenas na memória do navegador e são descartados ao recarregar a página. Não são compartilhados com terceiros. Guardamos somente as suas preferências de idioma e de tema (claro/escuro) no navegador, sem rastreamento nem cookies de publicidade."],
+            ["Recursos de terceiros", "Fontes (Google Fonts) e imagens (Unsplash) são carregadas de servidores externos, que podem receber o seu endereço IP."],
+            ["Seus direitos (art. 18)", "Confirmação, acesso, correção, anonimização, portabilidade, eliminação, informação sobre compartilhamento e revogação do consentimento. Use os botões do painel para exportar ou excluir dados, ou escreva ao Encarregado."]
+          ]
+        },
+        "en": {
+          "meta.title": "Grand Horizon | Luxury Resort & Spa",
+          "a11y.skip": "Skip to main content",
+          "nav.label": "Main navigation", "nav.experience": "The experience", "nav.rooms": "Accommodations", "nav.spa": "Wellness", "nav.admin": "Admin panel", "nav.cta": "Book now",
+          "nav.open": "Open menu", "nav.close": "Close menu", "lang.label": "Language", "theme.toggle": "Dark mode",
+          "hero.eyebrow": "Where the horizon meets you", "hero.h1a": "A new way to", "hero.h1b": "live the extraordinary.",
+          "hero.copy": "Between the endless blue of the sea and the calm of tropical gardens, discover days made to be remembered.",
+          "hero.cta": "Plan your stay", "hero.scroll": "explore the experience",
+          "booking.title1": "Book your", "booking.title2": "moment", "booking.name": "Full name", "booking.namePh": "Your name",
+          "booking.email": "Email", "booking.emailPh": "you@email.com", "booking.room": "Accommodation", "booking.in": "Check-in", "booking.out": "Check-out",
+          "booking.submit": "Confirm booking", "booking.processing": "Processing...", "booking.perNight": "/night",
+          "booking.hintBusy": "Notice: This accommodation is occupied from {date}. Select a check-out up to this date.",
+          "consent.privacy": "I have read and acknowledge the <a href=\"#privacy\" data-open-privacy>Privacy Notice</a>. My data will only be used to process this booking.",
+          "consent.marketing": "I'd like to receive offers and news by email (optional).",
+          "err.name": "Enter your full name.", "err.email": "Enter a valid email address.", "err.room": "Select an accommodation.",
+          "err.in": "Enter the check-in date.", "err.inPast": "The check-in date cannot be before today.", "err.out": "Enter the check-out date.",
+          "err.dateOrder": "The check-out date must be after the check-in date.",
+          "err.unavailable": "Unavailable: \"{room}\" is already booked from {from} to {to}. Please choose another period.",
+          "err.roomNotFound": "Accommodation not found.", "err.privacy": "Confirm that you have read the Privacy Notice to continue.",
+          "ok.booked": "Booking confirmed for {room}! Total: {total}.", "flash.close": "Close",
+          "intro.label": "The Grand Horizon essence", "intro.eyebrow": "More than a stay", "intro.h2a": "The luxury of feeling", "intro.h2b": "exactly where you belong.",
+          "intro.p": "At Grand Horizon, every detail is designed to turn time into memory. From the first coffee overlooking the sea to the last sunset at our spa, everything invites you to slow down.",
+          "intro.link": "Discover the resort",
+          "rooms.eyebrow": "Selected accommodations", "rooms.h2": "Your private horizon", "rooms.alt": "Photo of {name}",
+          "rooms.upTo": "Up to {n} guests", "rooms.night": "/ night", "cat.suite": "Suite", "cat.villa": "Villa", "cat.deluxe": "Deluxe Room",
+          "room.1.desc": "A bright suite with a private balcony, panoramic ocean views and handcrafted details.",
+          "room.2.desc": "An exclusive retreat with a private pool, a spacious living room and a dedicated concierge service.",
+          "room.3.desc": "A tranquil space facing the tropical gardens, designed to help you slow down and breathe.",
+          "spa.alt": "Spa treatment", "spa.label": "Wellbeing rituals", "spa.h2a": "Your time,", "spa.h2b": "your way.",
+          "spa.p": "Ancestral rituals, local ingredients and the wisdom of our therapists. At Horizon Spa, care begins the moment you decide to stop.",
+          "spa.cta": "Discover the spa",
+          "quote.text": "True luxury is having time to feel every moment.", "quote.author": "— The Grand Horizon philosophy",
+          "admin.eyebrow": "Hotel overview", "admin.h2": "Bookings panel", "admin.date": "{year} · Operations",
+          "admin.statCount": "Total bookings", "admin.statCountFoot": "confirmed bookings", "admin.statRev": "Accumulated revenue", "admin.statRevFoot": "total value of bookings",
+          "admin.statStatus": "Resort status", "admin.operational": "Operational", "admin.statusFoot": "system updated just now",
+          "admin.panelEyebrow": "Recent activity", "admin.panelTitle": "Bookings received", "admin.rec.one": "{n} record", "admin.rec.other": "{n} records",
+          "admin.caption": "Bookings received", "admin.scroll": "Bookings table (scroll to see more columns)",
+          "admin.colGuest": "Guest", "admin.colRoom": "Accommodation", "admin.colStay": "Stay", "admin.colTotal": "Total", "admin.colAt": "Received on", "admin.colActions": "Actions",
+          "admin.emptyTitle": "No bookings yet", "admin.emptyText": "New bookings will appear here as soon as they are submitted above.",
+          "admin.reveal": "Show full emails", "admin.export": "Export data (JSON)", "admin.delete": "Delete", "admin.deleteAria": "Delete booking for {name}",
+          "admin.deleteConfirm": "Permanently delete this booking's data?", "admin.deleted": "Booking and personal data deleted.",
+          "admin.exported": "Data exported.", "admin.exportEmpty": "There is no data to export.",
+          "footer.contact": "Contact us", "footer.follow": "Follow the horizon", "footer.admin": "Admin area", "footer.privacy": "Privacy",
+          "footer.tagline": "Made for slow living.", "footer.copy": "© {year} Grand Horizon Luxury Resort & Spa",
+          "social.ig": "Instagram", "social.fb": "Facebook", "social.in": "LinkedIn",
+          "privacy.title": "Privacy Notice", "privacy.lead": "In compliance with Brazil's General Personal Data Protection Law (Law No. 13,709/2018 – LGPD).", "privacy.close": "Close",
+          "privacy.items": [
+            ["Controller and Data Protection Officer", "Grand Horizon Luxury Resort & Spa. DPO contact: privacidade@grandhorizon.com."],
+            ["Data collected", "Full name, email, accommodation and stay dates. We do not collect sensitive personal data."],
+            ["Purpose and legal basis", "To process and confirm your booking (performance of a contract or preliminary procedures, art. 7, V). Email offers are only sent with your specific consent (art. 7, I), which you can withdraw at any time."],
+            ["Storage and sharing", "In this version, booking data stays only in the browser's memory and is discarded when the page reloads. It is not shared with third parties. We only keep your language and theme (light/dark) preferences in the browser, with no tracking or advertising cookies."],
+            ["Third-party resources", "Fonts (Google Fonts) and images (Unsplash) are loaded from external servers, which may receive your IP address."],
+            ["Your rights (art. 18)", "Confirmation, access, correction, anonymization, portability, deletion, information about sharing and withdrawal of consent. Use the panel buttons to export or delete data, or write to the DPO."]
+          ]
+        },
+        "es": {
+          "meta.title": "Grand Horizon | Luxury Resort & Spa",
+          "a11y.skip": "Ir al contenido principal",
+          "nav.label": "Navegación principal", "nav.experience": "La experiencia", "nav.rooms": "Alojamientos", "nav.spa": "Bienestar", "nav.admin": "Panel admin", "nav.cta": "Reserve ahora",
+          "nav.open": "Abrir menú", "nav.close": "Cerrar menú", "lang.label": "Idioma", "theme.toggle": "Modo oscuro",
+          "hero.eyebrow": "Donde el horizonte te encuentra", "hero.h1a": "Una nueva forma de", "hero.h1b": "vivir lo extraordinario.",
+          "hero.copy": "Entre el azul infinito del mar y la calma de los jardines tropicales, descubra días hechos para ser recordados.",
+          "hero.cta": "Planifique su estancia", "hero.scroll": "explore la experiencia",
+          "booking.title1": "Reserve su", "booking.title2": "momento", "booking.name": "Nombre completo", "booking.namePh": "Su nombre",
+          "booking.email": "Correo electrónico", "booking.emailPh": "su@correo.com", "booking.room": "Alojamiento", "booking.in": "Entrada", "booking.out": "Salida",
+          "booking.submit": "Confirmar reserva", "booking.processing": "Procesando...", "booking.perNight": "/noche",
+          "booking.hintBusy": "Aviso: Alojamiento ocupado a partir del {date}. Seleccione la salida hasta esta fecha.",
+          "consent.privacy": "He leído y estoy al tanto del <a href=\"#privacy\" data-open-privacy>Aviso de Privacidad</a>. Mis datos se usarán solo para procesar esta reserva.",
+          "consent.marketing": "Quiero recibir ofertas y novedades por correo electrónico (opcional).",
+          "err.name": "Indique su nombre completo.", "err.email": "Indique un correo electrónico válido.", "err.room": "Seleccione un alojamiento.",
+          "err.in": "Indique la fecha de entrada.", "err.inPast": "La fecha de entrada no puede ser anterior a hoy.", "err.out": "Indique la fecha de salida.",
+          "err.dateOrder": "La fecha de salida debe ser posterior a la fecha de entrada.",
+          "err.unavailable": "No disponible: \"{room}\" ya está reservado del {from} al {to}. Elija otro período.",
+          "err.roomNotFound": "Alojamiento no encontrado.", "err.privacy": "Confirme que ha leído el Aviso de Privacidad para continuar.",
+          "ok.booked": "¡Reserva confirmada con éxito para {room}! Total: {total}.", "flash.close": "Cerrar",
+          "intro.label": "La esencia Grand Horizon", "intro.eyebrow": "Más que una estancia", "intro.h2a": "El lujo de sentirse", "intro.h2b": "exactamente donde debería estar.",
+          "intro.p": "En Grand Horizon, cada detalle fue pensado para transformar el tiempo en recuerdo. Del primer café con vista al mar al último atardecer en nuestro spa, todo le invita a desacelerar.",
+          "intro.link": "Conozca el resort",
+          "rooms.eyebrow": "Alojamientos seleccionados", "rooms.h2": "Su horizonte particular", "rooms.alt": "Foto del alojamiento {name}",
+          "rooms.upTo": "Hasta {n} huéspedes", "rooms.night": "/ noche", "cat.suite": "Suite", "cat.villa": "Villa", "cat.deluxe": "Habitación Deluxe",
+          "room.1.desc": "Una suite luminosa con balcón privado, vista panorámica al océano y detalles artesanales.",
+          "room.2.desc": "Refugio exclusivo con piscina privada, amplia sala de estar y servicio de conserjería dedicado.",
+          "room.3.desc": "Un espacio tranquilo frente a los jardines tropicales, pensado para desacelerar y respirar.",
+          "spa.alt": "Tratamiento de spa", "spa.label": "Rituales de bienestar", "spa.h2a": "Su tiempo,", "spa.h2b": "a su manera.",
+          "spa.p": "Rituales ancestrales, ingredientes locales y la sabiduría de nuestras terapeutas. En Horizon Spa, el cuidado comienza cuando usted decide parar.",
+          "spa.cta": "Descubra el spa",
+          "quote.text": "El verdadero lujo es tener tiempo para sentir cada momento.", "quote.author": "— La filosofía Grand Horizon",
+          "admin.eyebrow": "Visión general del hotel", "admin.h2": "Panel de reservas", "admin.date": "{year} · Operaciones",
+          "admin.statCount": "Total de reservas", "admin.statCountFoot": "reservas confirmadas", "admin.statRev": "Facturación acumulada", "admin.statRevFoot": "valor total de las reservas",
+          "admin.statStatus": "Estado del resort", "admin.operational": "Operativo", "admin.statusFoot": "sistema actualizado ahora",
+          "admin.panelEyebrow": "Actividad reciente", "admin.panelTitle": "Reservas recibidas", "admin.rec.one": "{n} registro", "admin.rec.other": "{n} registros",
+          "admin.caption": "Reservas recibidas", "admin.scroll": "Tabla de reservas (desplácese para ver más columnas)",
+          "admin.colGuest": "Huésped", "admin.colRoom": "Alojamiento", "admin.colStay": "Estancia", "admin.colTotal": "Total", "admin.colAt": "Recibida el", "admin.colActions": "Acciones",
+          "admin.emptyTitle": "Aún no hay reservas", "admin.emptyText": "Las nuevas reservas aparecerán aquí en cuanto se envíen arriba.",
+          "admin.reveal": "Mostrar correos completos", "admin.export": "Exportar datos (JSON)", "admin.delete": "Eliminar", "admin.deleteAria": "Eliminar reserva de {name}",
+          "admin.deleteConfirm": "¿Eliminar definitivamente los datos de esta reserva?", "admin.deleted": "Reserva y datos personales eliminados.",
+          "admin.exported": "Datos exportados.", "admin.exportEmpty": "No hay datos para exportar.",
+          "footer.contact": "Contáctenos", "footer.follow": "Siga el horizonte", "footer.admin": "Área administrativa", "footer.privacy": "Privacidad",
+          "footer.tagline": "Made for slow living.", "footer.copy": "© {year} Grand Horizon Luxury Resort & Spa",
+          "social.ig": "Instagram", "social.fb": "Facebook", "social.in": "LinkedIn",
+          "privacy.title": "Aviso de Privacidad", "privacy.lead": "En cumplimiento de la Ley General de Protección de Datos de Brasil (Ley n.º 13.709/2018 – LGPD).", "privacy.close": "Cerrar",
+          "privacy.items": [
+            ["Responsable y Encargado (DPO)", "Grand Horizon Luxury Resort & Spa. Contacto del Encargado: privacidade@grandhorizon.com."],
+            ["Datos recopilados", "Nombre completo, correo electrónico, alojamiento y fechas de la estancia. No recopilamos datos personales sensibles."],
+            ["Finalidad y base legal", "Procesar y confirmar la reserva (ejecución de un contrato o de procedimientos preliminares, art. 7, V). Las ofertas por correo solo se envían con su consentimiento específico (art. 7, I), que puede retirar en cualquier momento."],
+            ["Almacenamiento y uso compartido", "En esta versión, los datos de la reserva permanecen solo en la memoria del navegador y se descartan al recargar la página. No se comparten con terceros. Solo guardamos sus preferencias de idioma y de tema (claro/oscuro) en el navegador, sin rastreo ni cookies publicitarias."],
+            ["Recursos de terceros", "Las fuentes (Google Fonts) y las imágenes (Unsplash) se cargan desde servidores externos, que pueden recibir su dirección IP."],
+            ["Sus derechos (art. 18)", "Confirmación, acceso, corrección, anonimización, portabilidad, eliminación, información sobre el uso compartido y revocación del consentimiento. Use los botones del panel para exportar o eliminar datos, o escriba al Encargado."]
+          ]
+        }
+      };
+
+      /* ===================================================
+         UTILITÁRIOS
+         =================================================== */
+
+      // Cria elementos DOM sem usar innerHTML (evita XSS com dados do usuário)
+      function h(tag, props = {}, ...children) {
+        const node = document.createElement(tag);
+        for (const [key, value] of Object.entries(props)) {
+          if (value === false || value == null) continue;
+          if (key === "class") node.className = value;
+          else if (key === "text") node.textContent = value;
+          else node.setAttribute(key, value === true ? "" : value);
+        }
+        node.append(...children);
+        return node;
+      }
+
+      const $ = (selector, root = document) => root.querySelector(selector);
+
+      class SafeStorage {
+        static get(key) { try { return localStorage.getItem(key); } catch { return null; } }
+        static set(key, value) { try { localStorage.setItem(key, value); } catch { /* armazenamento indisponível */ } }
+      }
+
+      class DateUtils {
+        static parse(iso) { const [y, m, d] = iso.split("-").map(Number); return new Date(y, m - 1, d); }
+        static toISO(date) {
+          const p = (n) => String(n).padStart(2, "0");
+          return `${date.getFullYear()}-${p(date.getMonth() + 1)}-${p(date.getDate())}`;
+        }
+        static today() { return DateUtils.toISO(new Date()); }
+        static addDays(iso, n) { const d = DateUtils.parse(iso); d.setDate(d.getDate() + n); return DateUtils.toISO(d); }
+        static nights(checkIn, checkOut) {
+          return Math.max(0, Math.round((DateUtils.parse(checkOut) - DateUtils.parse(checkIn)) / 86400000));
+        }
+        // Duas reservas se chocam se a entrada for antes do check-out existente E a saída for depois do check-in existente
+        static overlaps(inA, outA, inB, outB) { return inA < outB && outA > inB; }
+      }
+
+      /* ===================================================
+         INTERNACIONALIZAÇÃO E FORMATAÇÃO
+         =================================================== */
+
+      class I18n {
+        static FALLBACK = "pt-BR";
+        #dict; #lang = I18n.FALLBACK; #listeners = [];
+
+        constructor(dict) { this.#dict = dict; }
+        get lang() { return this.#lang; }
+        get supported() { return Object.keys(this.#dict); }
+
+        detect() {
+          const saved = SafeStorage.get("gh.lang");
+          if (saved && this.#dict[saved]) return saved;
+          const nav = (navigator.language || "").toLowerCase();
+          if (nav.startsWith("en")) return "en";
+          if (nav.startsWith("es")) return "es";
+          return I18n.FALLBACK;
+        }
+
+        set(lang, persist = true) {
+          if (!this.#dict[lang]) return;
+          this.#lang = lang;
+          document.documentElement.lang = lang;
+          if (persist) SafeStorage.set("gh.lang", lang); // só grava quando o usuário escolhe o idioma
+          this.#listeners.forEach((fn) => fn(lang));
+        }
+
+        onChange(fn) { this.#listeners.push(fn); }
+
+        t(key, params = {}) {
+          const value = this.#dict[this.#lang]?.[key] ?? this.#dict[I18n.FALLBACK][key] ?? key;
+          if (typeof value !== "string") return value;
+          return value.replace(/\{(\w+)\}/g, (_, k) => params[k] ?? "");
+        }
+
+        // Aplica traduções aos elementos marcados com data-i18n, data-i18n-html e data-i18n-attr
+        apply(root = document) {
+          root.querySelectorAll("[data-i18n]").forEach((n) => { n.textContent = this.t(n.dataset.i18n); });
+          root.querySelectorAll("[data-i18n-html]").forEach((n) => { n.innerHTML = this.t(n.dataset.i18nHtml); }); // somente strings do dicionário (confiáveis)
+          root.querySelectorAll("[data-i18n-attr]").forEach((n) => {
+            n.dataset.i18nAttr.split(";").forEach((pair) => {
+              const [attr, key] = pair.split(":");
+              n.setAttribute(attr, this.t(key));
+            });
+          });
+          document.title = this.t("meta.title");
+        }
+      }
+
+      class Formatter {
+        #i18n;
+        constructor(i18n) { this.#i18n = i18n; }
+        currency(value) { return new Intl.NumberFormat(this.#i18n.lang, { style: "currency", currency: "BRL" }).format(value); }
+        date(iso) { return iso ? new Intl.DateTimeFormat(this.#i18n.lang).format(DateUtils.parse(iso)) : ""; }
+        dateTime(ts) { return new Intl.DateTimeFormat(this.#i18n.lang, { dateStyle: "short", timeStyle: "short" }).format(ts); }
+      }
+
+      /* ===================================================
+         MODELOS E REPOSITÓRIO
+         =================================================== */
+
+      class Room {
+        constructor({ id, name, categoryKey, descriptionKey, price, capacity, image }) {
+          Object.assign(this, { id, name, categoryKey, descriptionKey, price, capacity, image });
+          Object.freeze(this);
+        }
+      }
+
+      class Reservation {
+        constructor({ room, guestName, email, checkIn, checkOut, marketingConsent = false }) {
+          this.id = Date.now() + Math.floor(Math.random() * 1000);
+          this.roomId = room.id;
+          this.roomName = room.name;
+          this.roomCategoryKey = room.categoryKey;
+          this.guestName = guestName;
+          this.email = email;
+          this.checkIn = checkIn;
+          this.checkOut = checkOut;
+          this.total = room.price * DateUtils.nights(checkIn, checkOut);
+          this.createdAt = Date.now();
+          this.privacyNoticeAckAt = this.createdAt; // registro da ciência do Aviso de Privacidade
+          this.marketingConsent = marketingConsent;   // consentimento específico e opcional
+        }
+        get nights() { return DateUtils.nights(this.checkIn, this.checkOut); }
+      }
+
+      class ReservationRepository {
+        #items = [];
+        get count() { return this.#items.length; }
+        all() { return [...this.#items]; }
+        add(reservation) { this.#items.unshift(reservation); }
+        remove(id) {
+          const index = this.#items.findIndex((r) => r.id === id);
+          return index >= 0 ? this.#items.splice(index, 1)[0] : null;
+        }
+        byRoom(roomId) { return this.#items.filter((r) => r.roomId === roomId); }
+        totalRevenue() { return this.#items.reduce((sum, r) => sum + r.total, 0); }
+        findConflict(roomId, checkIn, checkOut) {
+          return this.byRoom(roomId).find((r) => DateUtils.overlaps(checkIn, checkOut, r.checkIn, r.checkOut)) ?? null;
+        }
+        // Próxima reserva a partir do check-in escolhido (limita a data máxima de saída)
+        nextBlockedDate(roomId, checkIn) {
+          const starts = this.byRoom(roomId).map((r) => r.checkIn).filter((d) => d >= checkIn).sort();
+          return starts[0] ?? null;
+        }
+      }
+
+      class BookingService {
+        #rooms; #repo;
+        constructor(rooms, repo) { this.#rooms = rooms; this.#repo = repo; }
+        rooms() { return this.#rooms; }
+        getRoom(id) { return this.#rooms.find((r) => r.id === id) ?? null; }
+
+        validate(input, fmt) {
+          const errors = [];
+          const add = (field, key, params) => errors.push({ field, key, params });
+          const room = this.getRoom(input.roomId);
+
+          if (input.guestName.length < 2) add("guest_name", "err.name");
+          if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.email)) add("email", "err.email");
+          if (!room) add("room_id", "err.roomNotFound");
+          if (!input.checkIn) add("check_in", "err.in");
+          else if (input.checkIn < DateUtils.today()) add("check_in", "err.inPast");
+          if (!input.checkOut) add("check_out", "err.out");
+          else if (input.checkIn && DateUtils.nights(input.checkIn, input.checkOut) <= 0) add("check_out", "err.dateOrder");
+
+          if (room && !errors.some((e) => e.field.startsWith("check_"))) {
+            const conflict = this.#repo.findConflict(room.id, input.checkIn, input.checkOut);
+            if (conflict) add("check_in", "err.unavailable", { room: room.name, from: fmt.date(conflict.checkIn), to: fmt.date(conflict.checkOut) });
+          }
+          if (!input.privacyAck) add("privacy_ack", "err.privacy");
+          return errors;
+        }
+
+        book(input) {
+          const room = this.getRoom(input.roomId);
+          const reservation = new Reservation({ room, guestName: input.guestName, email: input.email, checkIn: input.checkIn, checkOut: input.checkOut, marketingConsent: input.marketingOptIn });
+          this.#repo.add(reservation);
+          return reservation;
+        }
+
+        cancel(id) { return this.#repo.remove(id); }
+      }
+
+      /* ===================================================
+         VIEWS E CONTROLADORES
+         =================================================== */
+
+      class NotificationCenter {
+        #stack; #i18n;
+        constructor(stack, i18n) { this.#stack = stack; this.#i18n = i18n; }
+        show(message, type = "success") {
+          const close = h("button", { type: "button", "aria-label": this.#i18n.t("flash.close"), text: "×" });
+          const flash = h("div", { class: `flash ${type}`, role: type === "error" ? "alert" : "status" }, h("span", { text: message }), close);
+          close.addEventListener("click", () => flash.remove());
+          this.#stack.append(flash);
+          if (type !== "error") setTimeout(() => flash.remove(), 8000); // erros permanecem até serem fechados
+        }
+      }
+
+      class RoomsView {
+        #service; #i18n; #fmt; #container; #select;
+        constructor({ service, i18n, fmt }) {
+          this.#service = service; this.#i18n = i18n; this.#fmt = fmt;
+          this.#container = $("#roomsContainer"); this.#select = $("#room_id");
+        }
+        render() {
+          const t = this.#i18n.t.bind(this.#i18n);
+          const selected = this.#select.value;
+          this.#container.replaceChildren();
+          this.#select.replaceChildren();
+          for (const room of this.#service.rooms()) {
+            const titleId = `room-title-${room.id}`;
+            this.#container.append(
+              h("article", { class: "room-card", "aria-labelledby": titleId },
+                h("div", { class: "room-image" },
+                  h("img", { src: room.image, alt: t("rooms.alt", { name: room.name }), loading: "lazy" }),
+                  h("span", { class: "room-category", text: t(room.categoryKey) }),
+                  h("span", { class: "image-arrow", "aria-hidden": "true", text: "↗" })),
+                h("div", { class: "room-info" },
+                  h("div", {}, h("h3", { id: titleId, text: room.name }), h("p", { text: t(room.descriptionKey) })),
+                  h("div", { class: "room-meta" },
+                    h("span", { text: t("rooms.upTo", { n: room.capacity }) }),
+                    h("strong", {}, `${this.#fmt.currency(room.price)} `, h("small", { text: t("rooms.night") }))))));
+            this.#select.append(h("option", { value: room.id, text: `${room.name} (${this.#fmt.currency(room.price)}${t("booking.perNight")})` }));
+          }
+          if (selected) this.#select.value = selected;
+        }
+      }
+
+      class AdminView {
+        #repo; #i18n; #fmt; #notifier; #service; #revealEmails = false;
+        constructor({ repo, service, i18n, fmt, notifier, onChange }) {
+          this.#repo = repo; this.#service = service; this.#i18n = i18n; this.#fmt = fmt; this.#notifier = notifier;
+
+          $("#revealBtn").addEventListener("click", (e) => {
+            this.#revealEmails = !this.#revealEmails;
+            e.currentTarget.setAttribute("aria-pressed", String(this.#revealEmails));
+            this.render();
+          });
+          $("#exportBtn").addEventListener("click", () => this.#export());
+          $("#reservationsTableBody").addEventListener("click", (e) => {
+            const btn = e.target.closest("button[data-id]");
+            if (!btn || !window.confirm(this.#i18n.t("admin.deleteConfirm"))) return;
+            this.#service.cancel(Number(btn.dataset.id)); // direito de eliminação (LGPD, art. 18, VI)
+            this.#notifier.show(this.#i18n.t("admin.deleted"));
+            onChange();
+          });
+        }
+
+        // Minimização de exposição: e-mail mascarado por padrão
+        #maskEmail(email) {
+          if (this.#revealEmails) return email;
+          const [local, domain] = email.split("@");
+          return `${local.charAt(0)}***@${domain}`;
+        }
+
+        // Portabilidade de dados (LGPD, art. 18, V)
+        #export() {
+          const t = this.#i18n.t.bind(this.#i18n);
+          const data = this.#repo.all();
+          if (!data.length) { this.#notifier.show(t("admin.exportEmpty"), "error"); return; }
+          const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
+          const link = h("a", { href: URL.createObjectURL(blob), download: "reservas-grand-horizon.json" });
+          document.body.append(link); link.click(); link.remove();
+          URL.revokeObjectURL(link.href);
+          this.#notifier.show(t("admin.exported"));
+        }
+
+        render() {
+          const t = this.#i18n.t.bind(this.#i18n);
+          const reservations = this.#repo.all();
+          const count = reservations.length;
+
+          $("#statCount").textContent = count;
+          $("#statRevenue").textContent = this.#fmt.currency(this.#repo.totalRevenue());
+          $("#reservationCountLabel").textContent = t(count === 1 ? "admin.rec.one" : "admin.rec.other", { n: count });
+          $("#emptyState").hidden = count > 0;
+
+          $("#reservationsTableBody").replaceChildren(...reservations.map((r) =>
+            h("tr", { role: "row" },
+              h("td", { role: "cell", "data-label": t("admin.colGuest") }, h("div", {}, h("strong", { text: r.guestName }), h("small", { text: this.#maskEmail(r.email) }))),
+              h("td", { role: "cell", "data-label": t("admin.colRoom") }, h("div", {}, r.roomName, h("small", { text: t(r.roomCategoryKey) }))),
+              h("td", { role: "cell", "data-label": t("admin.colStay"), text: `${this.#fmt.date(r.checkIn)} — ${this.#fmt.date(r.checkOut)}` }),
+              h("td", { role: "cell", "data-label": t("admin.colTotal") }, h("strong", { text: this.#fmt.currency(r.total) })),
+              h("td", { role: "cell", "data-label": t("admin.colAt"), text: this.#fmt.dateTime(r.createdAt) }),
+              h("td", { role: "cell", "data-label": t("admin.colActions") }, h("button", { type: "button", class: "tool-btn", "data-id": r.id, "aria-label": t("admin.deleteAria", { name: r.guestName }), text: t("admin.delete") })))));
+        }
+      }
+
+      class BookingFormController {
+        #service; #repo; #i18n; #fmt; #notifier; #onBooked; #busy = false;
+        #form; #btn; #label; #hint; #fields;
+
+        constructor({ service, repo, i18n, fmt, notifier, onBooked }) {
+          this.#service = service; this.#repo = repo; this.#i18n = i18n; this.#fmt = fmt; this.#notifier = notifier; this.#onBooked = onBooked;
+          this.#form = $("#bookingForm"); this.#btn = $("#submitBtn"); this.#label = $("#submitLabel"); this.#hint = $("#bookingHint");
+          this.#fields = Object.fromEntries(["guest_name", "email", "room_id", "check_in", "check_out", "privacy_ack", "marketing_optin"].map((id) => [id, $(`#${id}`)]));
+
+          const today = DateUtils.today();
+          this.#fields.check_in.min = today;
+          this.#fields.check_out.min = today;
+
+          this.#fields.check_in.addEventListener("change", () => this.updateConstraints());
+          this.#fields.room_id.addEventListener("change", () => this.updateConstraints());
+          this.#form.addEventListener("submit", (e) => { e.preventDefault(); this.#submit(); });
+        }
+
+        render() {
+          this.#label.textContent = this.#i18n.t(this.#busy ? "booking.processing" : "booking.submit");
+          this.updateConstraints();
+        }
+
+        // Limites dinâmicos do check-out conforme o check-in e as reservas existentes
+        updateConstraints() {
+          const { check_in: inEl, check_out: outEl, room_id: roomEl } = this.#fields;
+          this.#hint.textContent = "";
+          if (!inEl.value) { outEl.min = inEl.min; outEl.removeAttribute("max"); return; }
+
+          const minOut = DateUtils.addDays(inEl.value, 1);
+          outEl.min = minOut;
+          const blocked = this.#repo.nextBlockedDate(Number(roomEl.value), inEl.value);
+
+          if (blocked) {
+            outEl.max = blocked;
+            this.#hint.textContent = this.#i18n.t("booking.hintBusy", { date: this.#fmt.date(blocked) });
+          } else {
+            outEl.removeAttribute("max");
+          }
+          if (outEl.value && (outEl.value < minOut || (blocked && outEl.value > blocked))) outEl.value = "";
+        }
+
+        #clearErrors() {
+          for (const [id, el] of Object.entries(this.#fields)) {
+            el.removeAttribute("aria-invalid");
+            const msg = $(`#err_${id}`);
+            if (msg) msg.textContent = "";
+          }
+        }
+
+        #showErrors(errors) {
+          for (const { field, key, params } of errors) {
+            this.#fields[field].setAttribute("aria-invalid", "true");
+            const msg = $(`#err_${field}`);
+            if (msg && !msg.textContent) msg.textContent = this.#i18n.t(key, params);
+          }
+          this.#fields[errors[0].field].focus();
+          this.#notifier.show(this.#i18n.t(errors[0].key, errors[0].params), "error");
+        }
+
+        #submit() {
+          if (this.#busy) return;
+          this.#clearErrors();
+          const f = this.#fields;
+          const input = {
+            guestName: f.guest_name.value.trim(), email: f.email.value.trim(), roomId: parseInt(f.room_id.value, 10),
+            checkIn: f.check_in.value, checkOut: f.check_out.value, privacyAck: f.privacy_ack.checked, marketingOptIn: f.marketing_optin.checked
+          };
+          const errors = this.#service.validate(input, this.#fmt);
+          if (errors.length) { this.#showErrors(errors); return; }
+
+          // Bloqueio de envio duplo
+          this.#busy = true;
+          this.#btn.disabled = true;
+          this.#btn.setAttribute("aria-busy", "true");
+          this.render();
+
+          setTimeout(() => {
+            const reservation = this.#service.book(input);
+            this.#onBooked();
+            this.#notifier.show(this.#i18n.t("ok.booked", { room: reservation.roomName, total: this.#fmt.currency(reservation.total) }));
+            this.#form.reset();
+            this.#busy = false;
+            this.#btn.disabled = false;
+            this.#btn.removeAttribute("aria-busy");
+            this.render();
+            this.#btn.focus();
+          }, 400);
+        }
+      }
+
+      class NavController {
+        #i18n; #toggle; #nav;
+        constructor(i18n) {
+          this.#i18n = i18n; this.#toggle = $("#menuToggle"); this.#nav = $("#mainNav");
+          this.#toggle.addEventListener("click", () => this.#set(!this.isOpen));
+          this.#nav.addEventListener("click", (e) => { if (e.target.closest("a")) this.#set(false); });
+          document.addEventListener("keydown", (e) => {
+            if (e.key === "Escape" && this.isOpen) { this.#set(false); this.#toggle.focus(); }
+          });
+        }
+        get isOpen() { return this.#nav.classList.contains("is-open"); }
+        #set(open) {
+          this.#nav.classList.toggle("is-open", open);
+          this.#toggle.setAttribute("aria-expanded", String(open));
+          this.render();
+        }
+        render() { this.#toggle.setAttribute("aria-label", this.#i18n.t(this.isOpen ? "nav.close" : "nav.open")); }
+      }
+
+      class LanguageSwitcher {
+        #i18n; #buttons;
+        constructor(i18n) {
+          this.#i18n = i18n;
+          this.#buttons = [...document.querySelectorAll("[data-lang]")];
+          this.#buttons.forEach((b) => b.addEventListener("click", () => i18n.set(b.dataset.lang)));
+        }
+        render() { this.#buttons.forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.lang === this.#i18n.lang))); }
+      }
+
+      class ThemeController {
+        #i18n; #btn; #meta; #mq;
+        constructor(i18n) {
+          this.#i18n = i18n; this.#btn = $("#themeToggle"); this.#meta = $('meta[name="theme-color"]');
+          this.#mq = window.matchMedia("(prefers-color-scheme: dark)");
+          this.#apply(document.documentElement.dataset.theme || (this.#mq.matches ? "dark" : "light"));
+          this.#btn.addEventListener("click", () => {
+            const next = this.theme === "dark" ? "light" : "dark";
+            this.#apply(next);
+            SafeStorage.set("gh.theme", next); // só grava quando o usuário escolhe
+            this.render();
+          });
+          this.#mq.addEventListener("change", (e) => {
+            if (!SafeStorage.get("gh.theme")) { this.#apply(e.matches ? "dark" : "light"); this.render(); }
+          });
+        }
+        get theme() { return document.documentElement.dataset.theme === "dark" ? "dark" : "light"; }
+        #apply(theme) {
+          document.documentElement.dataset.theme = theme;
+          this.#meta?.setAttribute("content", theme === "dark" ? "#0a1520" : "#102a43");
+        }
+        render() {
+          const label = this.#i18n.t("theme.toggle");
+          this.#btn.setAttribute("aria-pressed", String(this.theme === "dark"));
+          this.#btn.setAttribute("aria-label", label);
+          this.#btn.title = label;
+        }
+      }
+
+      class PrivacyDialog {
+        #i18n; #dialog; #list;
+        constructor(i18n) {
+          this.#i18n = i18n; this.#dialog = $("#privacyDialog"); this.#list = $("#privacyList");
+          document.addEventListener("click", (e) => {
+            if (e.target.closest("[data-open-privacy]")) { e.preventDefault(); this.open(); }
+          });
+          $("#privacyClose").addEventListener("click", () => this.#dialog.close());
+          this.#dialog.addEventListener("click", (e) => { if (e.target === this.#dialog) this.#dialog.close(); });
+        }
+        open() { this.#dialog.showModal(); }
+        render() {
+          this.#list.replaceChildren(...this.#i18n.t("privacy.items").flatMap(([title, text]) => [h("dt", { text: title }), h("dd", { text })]));
+        }
+      }
+
+      /* ===================================================
+         APLICAÇÃO
+         =================================================== */
+
+      class App {
+        constructor() {
+          this.i18n = new I18n(TRANSLATIONS);
+          this.fmt = new Formatter(this.i18n);
+          this.repo = new ReservationRepository();
+          this.service = new BookingService(ROOMS_DATA.map((r) => new Room(r)), this.repo);
+          this.notifier = new NotificationCenter($("#flash-stack"), this.i18n);
+
+          this.roomsView = new RoomsView({ service: this.service, i18n: this.i18n, fmt: this.fmt });
+          this.adminView = new AdminView({ repo: this.repo, service: this.service, i18n: this.i18n, fmt: this.fmt, notifier: this.notifier, onChange: () => this.#refreshData() });
+          this.form = new BookingFormController({ service: this.service, repo: this.repo, i18n: this.i18n, fmt: this.fmt, notifier: this.notifier, onBooked: () => this.#refreshData() });
+          this.nav = new NavController(this.i18n);
+          this.lang = new LanguageSwitcher(this.i18n);
+          this.theme = new ThemeController(this.i18n);
+          this.privacy = new PrivacyDialog(this.i18n);
+        }
+
+        #refreshData() { this.adminView.render(); this.form.updateConstraints(); }
+
+        render() {
+          const year = new Date().getFullYear();
+          this.i18n.apply();
+          $("#copyrightYear").textContent = this.i18n.t("footer.copy", { year });
+          $("#adminYearDisplay").textContent = this.i18n.t("admin.date", { year });
+          // O slogan do rodapé está em inglês: marca o idioma da parte (WCAG 3.1.2)
+          const tagline = $("#tagline");
+          if (this.i18n.lang === "pt-BR") tagline.setAttribute("lang", "en"); else tagline.removeAttribute("lang");
+          this.roomsView.render();
+          this.adminView.render();
+          this.form.render();
+          this.privacy.render();
+          this.lang.render();
+          this.theme.render();
+          this.nav.render();
+        }
+
+        init() {
+          this.i18n.onChange(() => this.render());
+          this.i18n.set(this.i18n.detect(), false);
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", () => new App().init());
+    </script>
+  </body>
+</html>
